@@ -1,4 +1,4 @@
-vagrant-lamp-vm
+Vagrant LAMP VM
 ===============
 
 A LAMP VM for Vagrant provisioned with Puppet.
