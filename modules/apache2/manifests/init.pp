@@ -6,6 +6,11 @@ class apache2 {
         ensure => "present"
     } ->
 
+    file { "/etc/apache2/mods-enabled/rewrite.load":
+        ensure => link,
+        target => "/etc/apache2/mods-available/rewrite.load",
+    } ->
+
     file { "/etc/apache2/sites-enabled":
         ensure => directory,
         recurse => true,
