@@ -1,2 +1,2 @@
 .vagrant
-modules/stdlib/
+provision/modules/stdlib/

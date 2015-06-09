@@ -11,9 +11,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network "forwarded_port", guest: 3306, host: 3306
 
 
-    config.vm.provision "shell", inline: "puppet module install puppetlabs-stdlib --force --target-dir /vagrant/modules/"
+    config.vm.provision "shell", inline: "puppet module install puppetlabs-stdlib --force --target-dir /vagrant/provision/modules/"
     config.vm.provision "puppet" do |puppet|
-        puppet.module_path = "modules"
+        puppet.manifests_path = "provision/manifests"
+        puppet.manifest_file = "default.pp"
+        puppet.module_path = "provision/modules"
     end
 
     config.vm.synced_folder "./", "/vagrant/", id: "vagrant-root",
