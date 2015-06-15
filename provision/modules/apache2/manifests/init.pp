@@ -20,14 +20,14 @@ class apache2 {
 
     file { "/etc/apache2/sites-available/webroot.conf":
         ensure => present,
-        source => "/vagrant/modules/apache2/manifests/webroot.conf"
+        source => "/vagrant/provision/files/webroot.conf"
     } ->
 
     file { "/etc/apache2/sites-enabled/webroot.conf":
         ensure => link,
         target => "/etc/apache2/sites-available/webroot.conf"
     } ~>
-    
+
     service { "apache2":
         ensure => running
     }
